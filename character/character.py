@@ -23,3 +23,30 @@ intellegence={self.intellegence}
 wisdom={self.wisdom}\ndexterity={self.dexterity}
 constitution={self.constitution}
 charisma={self.charisma}"""
+
+
+class Human(Character):
+    def __init__(self):
+        super().__init__()
+
+class Dwarf(Character):
+    def __init__(self):
+        super().__init__()
+        self.constitution += 1
+        self.charisma += 1
+
+class Elf(Character):
+    def __init__(self) -> None:
+        super().__init__()
+        self.dexterity += 1
+        self.constitution -= 1
+
+class HalfElf(Character):
+    def __init__(self) -> None:
+        super().__init__()
+
+class Halfling(Character):
+    def __init__(self) -> None:
+        super().__init__()
+        self.dex += 1
+        self.strength -= 1
