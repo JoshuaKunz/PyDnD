@@ -7,6 +7,7 @@ from utilities.string_utilities import write_positive
 # dice = Dice()
 # attrib = dice.roll(3)
 # print(f"The output of the die roll is: {attrib}")
+# print attributes and penalty/bonus' on same line.
 
 # Ternary in most languages
 # var i = "fish" : "true fish" ? "false fish";
