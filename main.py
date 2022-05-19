@@ -10,3 +10,9 @@ from utilities.string_utilities import write_positive
 
 # Ternary in most languages
 # var i = "fish" : "true fish" ? "false fish";
+
+# git status returns any changes made to the project
+# git add <path> adds the folder or file to the commit
+# git commit -am "name of changes" commits all changes to the future push
+# git push adds the changes to the remote branch
+# git pull  pulls any changes other developers made to the branch
