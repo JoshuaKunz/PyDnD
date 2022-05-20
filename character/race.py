@@ -1,11 +1,7 @@
+
 class Race:
     def __race__(self):
-        self.human = hum
-        self.dwarf = dwar 
-        self.elf = elf
-        self.gnome = gno 
-        self.halfing = hling 
-        self.halfelf = helf
+        pass
 
 class Human(Race):
     def __init__(self):
@@ -23,10 +19,10 @@ class Gnome(Race):
     def __init__(self):
         pass
 
-class Halfing(Race):
+class Halfling(Race):
     def __init__(self):
         pass
-    
+
 class Half_Elf(Race):
     def __init__(self):
         pass
