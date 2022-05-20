@@ -3,22 +3,34 @@ from character.database.strength_service import *
 from utilities.dice import Dice
 from utilities.string_utilities import *
 
-dnd_db = DnDConnection()
+print("Character Creator")
+print("Choose the letter for the Race")
+print("H for Human \nD for Dwarf\nE for Elf\nG for Gnome\nS for Halfing\nP for HalfElf")
 
-dice = Dice(6)
+has_answered = False
+while(not has_answered):
+    race = str(input("Choose Race for Character: ")).lower()
+    if race == "h":
+        has_answered = True
+    
 
+    elif race == "d":
+        has_answered = True
+    
 
-for x in range(0,6):
-    strdata = get_str_value(dice.roll(3))
-    dexdata = get_dex_value(dice.roll(3))
-    condata = get_con_value(dice.roll(3))
-    intdata = get_int_value(dice.roll(3))
-    wisdata = get_wis_value(dice.roll(3))
-    chadata = get_cha_value(dice.roll(3))
+    elif race == "e":
+        has_answered = True
+    
 
-    print(strdata)
-    print(dexdata)
-    print(condata)
-    print(intdata)
-    print(wisdata)
-    print(chadata)
+    elif race == "g":
+        has_answered = True
+  
+
+    elif race == "s":
+        has_answered = True
+   
+
+    elif race =="p":
+        has_answered = True
+    print(race)
+    print(has_answered)
