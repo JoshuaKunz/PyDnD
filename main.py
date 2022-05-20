@@ -1,8 +1,7 @@
+from character.database.connections import DnDConnection
+from character.database.strength_service import *
 from utilities.dice import Dice
-from character.character import Character
-from utilities.string_utilities import write_positive
-
-
+from utilities.string_utilities import *
 
 print("Character Creator")
 print("Choose the letter for the Race")
@@ -35,4 +34,3 @@ while(not has_answered):
         has_answered = True
     print(race)
     print(has_answered)
-
