@@ -3,95 +3,36 @@ from character.character import Character
 from utilities.string_utilities import write_positive
 from character.database.race_option_service import *
 
-print("Character Creator")
+print("Character Creator\n")
 character = Character()
-
-
+race = ""
+char_class = ""
 
 # get the race options and store them in a variable
 racelist = get_race_options(character)
-print()
-print()
-print(str(character))
-print()
-print()
-
-print(racelist)
-
-
-#iterate meaning for each
+print("Available Characters:")
 for race in racelist:
     print(race)
+print()
+race_string = ""
+for index in range(0, len(racelist)):
+    race_string += str(index) +" for " + racelist[index] + "\n"
 
-# loop through each of the race options
-    # print each of them to the console
+print("Choose your race below.")
 
-# print("H for Human \nD for Dwarf\nE for Elf\nG for Gnome\nS for Halfing\nP for HalfElf")
+print(race_string)
 
-# has_answered = False
-# while(not has_answered):
-#     race_char = str(input("Choose Race for Character: ")).lower()
-#     if race_char == "h":
-#         has_answered = True
-    
+has_answered = False
+while(not has_answered):
+    user_input = int(input("What is your choice: "))
 
-#     elif race_char == "d":
-#         has_answered = True
-    
+    if user_input > len(racelist) - 1:
+        print("nice try...")
+        continue
+    else:
+        has_answered = True
+    race = racelist[user_input]
 
-#     elif race_char == "e":
-#         has_answered = True
-    
+print("You have chosen to be a(n) " + race)
 
-#     elif race_char == "g":
-#         has_answered = True
-  
-
-#     elif race_char == "s":
-#         has_answered = True
-   
-
-#     elif race_char =="p":
-#         has_answered = True
-
-
-# print("Choose the letter for the Class")
-# print("F for Fighter \nP for Paladin \nR for Ranger \nM for Mage \nI for Illusionist \nC for Cleric \nD for Druid \nT for Thief \nB for Bard ")
-
-# has_answered = False
-# while(not has_answered):
-#     prof = str(input("Choose Class for Character: ")).lower()
-#     if prof == "f":
-#         has_answered = True
-    
-
-#     elif prof == "p":
-#         has_answered = True
-    
-
-#     elif prof == "r":
-#         has_answered = True
-    
-
-#     elif prof == "m":
-#         has_answered = True
-  
-
-#     elif prof == "i":
-#         has_answered = True
-   
-
-#     elif prof =="c":
-#         has_answered = True
-
-
-#     elif prof =="d":
-#         has_answered = True
-
-
-#     elif prof =="t":
-#         has_answered = True
-
-
-#     elif prof =="b":
-#         has_answered = True
+print("Which Class would you like to be?")
