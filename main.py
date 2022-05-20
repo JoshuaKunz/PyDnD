@@ -6,15 +6,22 @@ from character.database.race_option_service import *
 print("Character Creator")
 character = Character()
 
-x = get_wis_value(10)
-print(x)
+
 
 # get the race options and store them in a variable
-# racelist = get_race_options(character)
+racelist = get_race_options(character)
+print()
+print()
+print(str(character))
+print()
+print()
+
+print(racelist)
+
 
 #iterate meaning for each
-# for race in racelist:
-    # print(race)
+for race in racelist:
+    print(race)
 
 # loop through each of the race options
     # print each of them to the console

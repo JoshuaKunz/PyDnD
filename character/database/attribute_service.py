@@ -121,6 +121,7 @@ def get_halfling_req(): # get dex, con, int
         output['min_dex'] = row.min_dex
         output['min_con'] = row.min_con
         output['min_int'] = row.min_int
+        output['min_str'] = row.min_str
 
     return output
 
