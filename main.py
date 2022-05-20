@@ -1,36 +1,38 @@
-from character.database.connections import DnDConnection
-from character.database.strength_service import *
 from utilities.dice import Dice
-from utilities.string_utilities import *
+from character.character import Character
+from utilities.string_utilities import write_positive
+from character.database.race_option_service import *
 
-print("Character Creator")
-print("Choose the letter for the Race")
-print("H for Human \nD for Dwarf\nE for Elf\nG for Gnome\nS for Halfing\nP for HalfElf")
+print("Character Creator\n")
+character = Character()
+race = ""
+char_class = ""
+
+# get the race options and store them in a variable
+racelist = get_race_options(character)
+print("Available Characters:")
+for race in racelist:
+    print(race)
+print()
+race_string = ""
+for index in range(0, len(racelist)):
+    race_string += str(index) +" for " + racelist[index] + "\n"
+
+print("Choose your race below.")
+
+print(race_string)
 
 has_answered = False
 while(not has_answered):
-    race = str(input("Choose Race for Character: ")).lower()
-    if race == "h":
-        has_answered = True
-    
+    user_input = int(input("What is your choice: "))
 
-    elif race == "d":
+    if user_input > len(racelist) - 1:
+        print("nice try...")
+        continue
+    else:
         has_answered = True
-    
+    race = racelist[user_input]
 
-    elif race == "e":
-        has_answered = True
-    
+print("You have chosen to be a(n) " + race)
 
-    elif race == "g":
-        has_answered = True
-  
-
-    elif race == "s":
-        has_answered = True
-   
-
-    elif race =="p":
-        has_answered = True
-    print(race)
-    print(has_answered)
+print("Which Class would you like to be?")

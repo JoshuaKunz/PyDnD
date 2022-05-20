@@ -1,5 +1,5 @@
 from character.database.models import *
-from character.database.strength_service import *
+from character.database.attribute_service import *
 
 
 def get_str_value(abil_score):
@@ -87,3 +87,66 @@ def get_cha_value(abil_score):
         output['reaction_adjustment'] = row.reaction_adjustment
 
     return output
+
+def get_elf_req(): #get dex, con, int, cha
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "elf")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+        output['min_con'] = row.min_con
+        output['min_int'] = row.min_int
+        output['min_cha'] = row.min_cha
+
+    return output
+
+def get_dwarf_req(): # get str, con
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "dwarf")
+
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+        output['min_con'] = row.min_con
+
+    return output
+
+def get_halfling_req(): # get dex, con, int
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "halfling")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+        output['min_con'] = row.min_con
+        output['min_int'] = row.min_int
+        output['min_str'] = row.min_str
+
+    return output
+
+def get_halfelf_req(): # get dex, con, int
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "half-elf")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+        output['min_con'] = row.min_con
+        output['min_int'] = row.min_int
+
+    return output
+
+def get_gnome_req(): # get str, con ,int
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "gnome")
+    
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+        output['min_con'] = row.min_con
+        output['min_int'] = row.min_int
+
+    return output
+
+
