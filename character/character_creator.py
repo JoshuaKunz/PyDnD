@@ -1,6 +1,7 @@
 from character.character import Character
 from character.database.race_option_service import *
 from character.database.class_option_services import *
+from character.database.racial_adjustment import get_racial_adjust
 
 def character_creator():
     print("Character Creator\n")
@@ -34,6 +35,10 @@ def character_creator():
         race = racelist[user_input]
 
     print("\nYou have chosen to be a(n) " + race + '\n')
+    character.race = race
+
+    character = get_racial_adjust(character)
+
 
     classlist = get_class_options(character)
     print("Which Class would you like to be?")
