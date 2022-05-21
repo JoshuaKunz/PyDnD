@@ -12,7 +12,7 @@ class Character:
         self.wisdom = self.dice.roll(3)
         self.charisma = self.dice.roll(3)
 
-        self.max_press = 0
+       
 
     def __str__(self):
         return f"""Str: {self.strength}

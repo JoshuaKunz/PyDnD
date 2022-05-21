@@ -150,3 +150,101 @@ def get_gnome_req(): # get str, con ,int
     return output
 
 
+def get_fighter_req():# fighter get str
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="fighter")
+
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+
+    return output
+
+def get_paladin_req():# paladin get str, con, wis, cha
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="paladin")
+
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+        output['min_con'] = row.min_con
+        output['min_wis'] = row.min_wis
+        output['min_cha'] = row.min_cha
+
+    return output
+
+def get_ranger_req():# ranger get str, con, wis, cha
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="ranger")
+
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+        output['min_con'] = row.min_con
+        output['min_wis'] = row.min_wis
+        output['min_dex'] = row.min_dex
+
+    return output
+
+def get_mage_req():# mage get str, con, wis, cha
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="mage")
+
+    output = {}
+
+    for row in query:
+        output['min_int'] = row.min_int
+       
+    return output
+
+def get_illusionist_req():# illusionist get dex
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="illusionist")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+
+    return output
+
+def get_cleric_req():# cleric get wisdom
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="cleric")
+
+    output = {}
+
+    for row in query:
+        output['min_wis'] = row.min_wis
+
+    return output
+
+def get_druid_req():# druid get wis, cha
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="druid")
+
+    output = {}
+
+    for row in query:
+        output['min_wis'] = row.min_wis
+        output['min_cha'] = row.min_cha
+
+    return output
+
+def get_thief_req():# thief get dex
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="thief")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+
+    return output
+
+def get_bard_req():# bard get dex, int, cha
+    query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="bard")
+
+    output = {}
+
+    for row in query:
+        output['min_dex'] = row.min_dex
+        output['min_int'] = row.min_int
+        output['min_cha'] = row.min_cha
+
+    return output

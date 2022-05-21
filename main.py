@@ -2,6 +2,7 @@ from utilities.dice import Dice
 from character.character import Character
 from utilities.string_utilities import write_positive
 from character.database.race_option_service import *
+from character.database.class_option_services import *
 
 print("Character Creator\n")
 character = Character()
@@ -33,6 +34,30 @@ while(not has_answered):
         has_answered = True
     race = racelist[user_input]
 
-print("You have chosen to be a(n) " + race)
+print("\nYou have chosen to be a(n) " + race + '\n')
 
+classlist = get_class_options(character)
 print("Which Class would you like to be?")
+for char_class in classlist:
+    print(char_class)
+print()
+class_string =""
+for index in range(0, len(classlist)):
+    class_string += str(index) +" for " + classlist[index] + "\n"
+
+print("Choose your class below.")
+
+print(class_string)
+
+has_answered = False
+while(not has_answered):
+    user_input = int(input("What is your choice: "))
+
+    if user_input > len(classlist) - 1:
+        print("invalid class")
+        continue
+    else:
+        has_answered = True
+    char_class = classlist[user_input]
+
+print("\nYou have chosen to be a(n) " + char_class + '\n')
