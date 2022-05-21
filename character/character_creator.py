@@ -2,6 +2,7 @@ from character.character import Character
 from character.database.race_option_service import *
 from character.database.class_option_services import *
 from character.database.racial_adjustment import get_racial_adjust
+from utilities.colored_text import *
 
 def character_creator():
     print("Character Creator\n")
