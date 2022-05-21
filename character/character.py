@@ -12,6 +12,8 @@ class Character:
         self.wisdom = self.dice.roll(3)
         self.charisma = self.dice.roll(3)
 
+        self.race = None
+
        
 
     def __str__(self):
