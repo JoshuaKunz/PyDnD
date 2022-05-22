@@ -13,7 +13,16 @@ class Character:
         self.charisma = self.dice.roll(3)
 
         self.race = None
+        self.cls = None
 
+        self.pp = 0
+        self.ol = 0
+        self.frt = 0
+        self.hs = 0
+        self.ms = 0
+        self.dn = 0
+        self.cw = 0
+        self.rl =0
        
 
     def __str__(self):
