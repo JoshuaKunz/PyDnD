@@ -72,4 +72,5 @@ def character_creator():
 
     if character.cls == 'thief':
         character = get_all_thief_adjust(character)
-        print()
+    
+    print_green(str(character))
