@@ -3,6 +3,7 @@ from character.database.race_option_service import *
 from character.database.class_option_services import *
 from character.database.racial_adjustment import get_racial_adjust
 from utilities.colored_text import *
+from character.database.thief_services import *
 
 def character_creator():
     print("Character Creator\n")
@@ -64,5 +65,11 @@ def character_creator():
         else:
             has_answered = True
         char_class = classlist[user_input]
-
+        
+    character.cls = char_class
     print("\nYou have chosen to be a(n) " + char_class + '\n')
+        # return char_class
+
+    if character.cls == 'thief':
+        character = get_all_thief_adjust(character)
+        print()
