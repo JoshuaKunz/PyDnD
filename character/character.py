@@ -3,7 +3,7 @@ from utilities.dice import Dice
 
 class Character:
     dice = Dice(6)
-    
+
     def __init__(self):
         self.strength = self.dice.roll(3)
         self.dexterity = self.dice.roll(3)
@@ -22,8 +22,7 @@ class Character:
         self.ms = 0
         self.dn = 0
         self.cw = 0
-        self.rl =0
-       
+        self.rl = 0
 
     def __str__(self):
         string_builder = f"""Str: {self.strength}
@@ -33,16 +32,10 @@ Int: {self.intelligence}
 Wis: {self.wisdom}
 Cha: {self.charisma}"""
 
-
         if self.cls == "thief":
             string_builder += f"""
-pp: {self.pp}
-ol: {self.ol}
-frt: {self.frt}
-hs: {self.hs}
-ms: {self.ms}
-dn: {self.dn}
-cw: {self.cw}
-rl: {self.rl}"""
+pp: {self.pp} ms: {self.ms} cw: {self.cw}
+ol: {self.ol} hs: {self.hs} rl: {self.rl}
+frt: {self.frt} dn: {self.dn}"""
+
         return string_builder
-        
