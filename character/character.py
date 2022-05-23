@@ -26,13 +26,23 @@ class Character:
        
 
     def __str__(self):
-        string_builder = f"""Str: {self.strength} Dex: {self.dexterity} Con: {self.constitution}
-Int: {self.intelligence} Wis: {self.wisdom} Cha: {self.charisma}"""
+        string_builder = f"""Str: {self.strength}
+Dex: {self.dexterity}
+Con: {self.constitution}
+Int: {self.intelligence}
+Wis: {self.wisdom}
+Cha: {self.charisma}"""
 
 
         if self.cls == "thief":
             string_builder += f"""
-pp: {self.pp} ol: {self.ol} frt: {self.frt} hs: {self.hs}
-ms: {self.ms} dn: {self.dn} cw: {self.cw} rl: {self.rl}"""
+pp: {self.pp}
+ol: {self.ol}
+frt: {self.frt}
+hs: {self.hs}
+ms: {self.ms}
+dn: {self.dn}
+cw: {self.cw}
+rl: {self.rl}"""
         return string_builder
         
