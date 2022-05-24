@@ -122,6 +122,15 @@ def get_thief_race_adjust(character):
         character.cw -= 15
         character.rl -= 5
 
+    if character.race =='half-orc':
+
+        character.pp -= 5
+        character.ol += 5
+        character.frt += 5
+        character.dn += 5
+        character.cw += 5
+        character.rl -= 10
+
     return character
 
 def get_all_thief_adjust(character):
