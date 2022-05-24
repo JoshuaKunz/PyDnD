@@ -248,3 +248,76 @@ def get_bard_req():# bard get dex, int, cha
         output['min_cha'] = row.min_cha
 
     return output
+
+
+def set_str_adjust(character):
+    values = get_str_value(character.strength)
+
+    character.hit_probability = values['hit_probability']
+    character.damage_adjust = values['damage_adjust']
+    character.weight_allowance = values['weight_allowance']
+    character.max_press = values['max_press']
+    character.open_doors = values['open_doors']
+    character.bend_bars_lift_gates = values['bend_bars_lift_gates']
+
+    return character
+
+def set_cha_adjust(character):
+    values = get_cha_value(character.charisma)
+
+    character.maximum_henchmen = values['maximum_henchmen']
+    character.loyalty_base = values['loyalty_base']
+    character.cha_reaction_adjustment = values['reaction_adjustment']
+
+    return character
+
+def set_con_adjust(character):
+    values = get_con_value(character.constitution)
+
+    character.hp_adjustment = values['hp_adjustment']
+    character.system_shock = values['system_shock']
+    character.ressurection_survival = values['ressurection_survival']
+    character.poison_save = values['poison_save']
+    character.regeneration = values['regeneration']
+
+    return character
+
+def set_dex_adjust(character):
+    values = get_dex_value(character.dexterity)
+
+    character.dex_reaction_adjustment = values['reaction_adjustment']
+    character.missile_attack_adjustment = values['missile_attack_adjustment']
+    character.defensive_adjustment = values['defensive_adjustment']
+
+    return character
+
+def set_int_adjust(character):
+    values = get_int_value(character.intelligence)
+
+    character.number_of_languages = values['number_of_languages']
+    character.max_spell_level = values['max_spell_level']
+    character.chance_learn_spell = values['chance_learn_spell']
+    character.max_number_of_spells = values['max_number_of_spells']
+    character.illusion_immunity = values['illusion_immunity']
+
+    return character
+
+def set_wis_adjust(character):
+    values = get_wis_value(character.wisdom)
+
+    character.magic_defence_adjustment = values['magic_defence_adjustment']
+    character.bonus_spells = values['bonus_spells']
+    character.chance_spell_failure = values['chance_spell_failure']
+    character.spell_immunity = values['spell_immunity']
+
+    return character
+
+def set_all_attr_adjust(character):
+    character = set_str_adjust(character)
+    character = set_cha_adjust(character)
+    character = set_con_adjust(character)
+    character = set_dex_adjust(character)
+    character = set_int_adjust(character)
+    character = set_wis_adjust(character)
+
+    return character

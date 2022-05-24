@@ -24,6 +24,44 @@ class Character:
         self.cw = 0
         self.rl = 0
 
+        # cha
+        self.maximum_henchmen = 0
+        self.loyalty_base = 0
+        self.cha_reaction_adjustment = 0
+
+        # con
+        self.hp_adjustment = 0
+        self.system_shock = 0
+        self.ressurection_survival = 0
+        self.poison_save = 0
+        self.regeneration = 0
+
+        # dex
+        self.dex_reaction_adjustment = 0
+        self.missile_attack_adjustment = 0
+        self.defensive_adjustment = 0
+
+        # int
+        self.number_of_languages = 0
+        self.max_spell_level = 0
+        self.chance_learn_spell = 0
+        self.max_number_of_spells = 0
+        self.illusion_immunity = 0
+
+        # str
+        self.hit_probability = 0
+        self.damage_adjust = 0
+        self.weight_allowance = 0
+        self.max_press = 0
+        self.open_doors = 0
+        self.bend_bars_lift_gates = 0
+
+        # wis
+        self.magic_defence_adjustment = 0
+        self.bonus_spells = 0
+        self.chance_spell_failure = 0
+        self.spell_immunity = 0
+
     def __str__(self):
         string_builder = f"""Str: {self.strength}
 Dex: {self.dexterity}
