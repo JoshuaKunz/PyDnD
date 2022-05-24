@@ -9,6 +9,7 @@ def get_race_options(character):
     halfling_req = get_halfling_req()
     half_elf_req = get_halfelf_req()
     gnome_req = get_gnome_req()
+    half_orc_req = get_halforc_req()
 
     # compare race req to character
     if character.dexterity >= elf_req['min_dex']:
@@ -37,6 +38,10 @@ def get_race_options(character):
         if character.intelligence >= gnome_req['min_int']:
             if character.strength >= gnome_req['min_str']:
                 output.append('gnome')
+                
+    if character.strength >= half_orc_req['min_str']:
+        if character.constitution >= half_orc_req['min_con']:
+            output.append('half-orc')
     # if req is met then add the race to the output list
     return output
     # and finally...
