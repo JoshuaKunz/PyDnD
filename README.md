@@ -2,7 +2,7 @@
 
 Character creator written in Python
 Advanced DnD 2nd edition
-
+Authors: Josh Kunz and J. Paul Jalowy
 
 ## Advanced DnD 2nd Edition Character creation process
 
