@@ -41,6 +41,9 @@ def character_creator():
 
     character = get_racial_adjust(character)
 
+    # add the attribute stats to the character
+    character = set_all_attr_adjust(character)
+
 
     classlist = get_class_options(character)
     print("Which Class would you like to be?")
