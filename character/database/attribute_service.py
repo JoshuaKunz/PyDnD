@@ -148,7 +148,17 @@ def get_gnome_req(): # get str, con ,int
         output['min_int'] = row.min_int
 
     return output
+    
+def get_halforc_req():
+    query = race_ability_score_requirements.select().where(race_ability_score_requirements.race_name == "half-orc")
 
+    output = {}
+
+    for row in query:
+        output['min_str'] = row.min_str
+        output['min_con'] = row.min_con
+
+    return output
 
 def get_fighter_req():# fighter get str
     query = subclass_ability_score_requirements.select().where(subclass_ability_score_requirements.subclass_name =="fighter")

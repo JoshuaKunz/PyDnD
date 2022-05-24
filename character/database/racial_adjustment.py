@@ -22,6 +22,12 @@ def get_racial_adjust(character):
         character.strength = character.strength - 1
         return character
 
+    elif character.race == "half-orc":
+        character.strength = character.strength + 1
+        character.constitution = character.constitution + 1
+        character.charisma = character.charisma - 1
+        return character
+
     else:
         return character
 
