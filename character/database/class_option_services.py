@@ -51,6 +51,6 @@ def get_class_options(character):
     if character.dexterity >= bard_req['min_dex']:
         if character.intelligence >= bard_req['min_int']:
             if character.charisma >= bard_req['min_cha']:
-                output.appen('bard')
+                output.append('bard')
     # if req is met then add the race to the output list
     return output
