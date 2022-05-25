@@ -103,10 +103,14 @@ def __test_character_creator():
 
     racelist = get_race_options(character)
     print("Available Characters:")
+
     for race in racelist:
         print(race)
+
     print()
+
     race_string = ""
+    
     for index in range(0, len(racelist)):
         race_string += str(index) +" for " + racelist[index] + "\n"
 
