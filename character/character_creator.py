@@ -4,6 +4,7 @@ from character.database.class_option_services import *
 from character.database.racial_adjustment import get_racial_adjust
 from utilities.colored_text import *
 from character.database.thief_services import *
+from character.character_sheet import CharacterSheet as cs
 
 def character_creator():
     print("Character Creator\n")
@@ -77,3 +78,18 @@ def character_creator():
         character = get_all_thief_adjust(character)
     
     print_green(str(character))
+
+    while True:
+        answer = str(input("Would you like to save this to a file? y/n")).lower()
+
+        if answer == 'y' or answer == 'yes':
+            print("creating file in downloads folder.")
+            cs.make_file(character, cs.Type.txt)
+            break
+
+        elif answer == 'n' or answer == 'no':
+            print("No file will be created.")
+            break
+        else:
+            print("Incorrect answer, try again.")
+            continue
