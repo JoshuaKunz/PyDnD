@@ -32,7 +32,7 @@ def get_race_options(character):
     if character.dexterity >= half_elf_req['min_dex']:
         if character.constitution >= half_elf_req['min_con']:
             if character.intelligence >= half_elf_req['min_int']:
-                output.append('half_elf')
+                output.append('half-elf')
 
     if character.constitution >= gnome_req['min_con']:
         if character.intelligence >= gnome_req['min_int']:

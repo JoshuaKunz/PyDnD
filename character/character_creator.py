@@ -48,7 +48,7 @@ def character_creator():
     character = set_all_attr_adjust(character)
 
     print_green(str(character))
-
+# race class issue at this point
     options = get_class_options(character)
     classlist = race_class_limits(character.race, options)
 
@@ -92,6 +92,50 @@ def character_creator():
 
     if character.cls == 'bard':
         character = get_all_bard_adjust(character)
+
+    sm = character.str_mod
+    if character.cls == 'fighter':
+        if sm < 51:
+            character.hit_probability = 1
+            character.damage_adjust = 3
+            character.weight_allowance = 135
+            character.max_press = 280
+            character.open_doors = 12
+            character.bend_bars_lift_gates = 20
+
+        if sm >= 51 and sm <= 75:
+            character.hit_probability = 2
+            character.damage_adjust = 3
+            character.weight_allowance = 160
+            character.max_press = 305
+            character.open_doors = 13
+            character.bend_bars_lift_gates = 25
+
+        if sm >= 76 and sm <= 90:
+            character.hit_probability = 2
+            character.damage_adjust = 4
+            character.weight_allowance = 185
+            character.max_press = 330
+            character.open_doors = 14
+            character.bend_bars_lift_gates = 30
+
+        if sm >= 91 and sm <= 99:
+            character.hit_probability = 2
+            character.damage_adjust = 5
+            character.weight_allowance = 235
+            character.max_press = 380
+            character.open_doors = 15
+            character.bend_bars_lift_gates = 35
+        
+        if sm == 100:
+            character.hit_probability = 3
+            character.damage_adjust = 6
+            character.weight_allowance = 335
+            character.max_press = 480
+            character.open_doors = 16
+            character.bend_bars_lift_gates = 40
+
+
     
     print_green(str(character))
     

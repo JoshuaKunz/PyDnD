@@ -12,6 +12,8 @@ class Character:
         self.wisdom = self.dice.roll(3)
         self.charisma = self.dice.roll(3)
 
+        self.str_mod = Dice(100).roll(1)
+
         self.race = None
         self.cls = None
 
@@ -65,12 +67,17 @@ class Character:
         self.spell_immunity = 0
 
     def __str__(self):
-        string_builder = f"""Str: {self.strength}
-Dex: {self.dexterity}
+        string_builder = ''
+        if self.cls == 'fighter' and self.strength == 18:
+            string_builder += f"Str: {self.strength}/{self.str_mod}\n"
+        else:
+            string_builder += f"Str: {self.strength}\n"
+        string_builder += f"""Dex: {self.dexterity}
 Con: {self.constitution}
 Int: {self.intelligence}
 Wis: {self.wisdom}
 Cha: {self.charisma}"""
+
 
         if self.cls == "thief":
             string_builder += f"""
