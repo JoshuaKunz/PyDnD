@@ -95,6 +95,8 @@ def character_creator():
     
     print_green(str(character))
     
+    cs.make_file(character)
+    
 
 def __test_character_creator():
 
