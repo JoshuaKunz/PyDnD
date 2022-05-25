@@ -6,6 +6,7 @@ from utilities.colored_text import *
 from character.database.thief_services import *
 from character.character_sheet import CharacterSheet as cs
 from character.database.race_limitations import *
+from character.database.hit_point_service import *
 
 def character_creator():
     print("Character Creator\n")
@@ -48,7 +49,7 @@ def character_creator():
     character = set_all_attr_adjust(character)
 
     print_green(str(character))
-# race class issue at this point
+
     options = get_class_options(character)
     classlist = race_class_limits(character.race, options)
 
@@ -138,7 +139,11 @@ def character_creator():
 
     
     print_green(str(character))
-    
+
+   
+    character = get_hp_score(character)
+    character = get_hp_adjust(character)
+    print_red('Hp: ' + str(character.hp))
     cs.make_file(character)
     
 
@@ -233,7 +238,7 @@ def __test_character_creator():
         character = get_all_thief_adjust(character)
     
     print_green(str(character))
-
+    
     while True:
         answer = str(input("Would you like to save this to a file? y/n")).lower()
 

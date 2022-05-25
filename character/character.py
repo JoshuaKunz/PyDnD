@@ -14,6 +14,8 @@ class Character:
 
         self.str_mod = Dice(100).roll(1)
 
+        self.hp = 0
+
         self.race = None
         self.cls = None
 
