@@ -24,6 +24,8 @@ class Character:
         self.cw = 0
         self.rl = 0
 
+        self.cp = 0
+
         # cha
         self.maximum_henchmen = 0
         self.loyalty_base = 0
@@ -76,4 +78,8 @@ pp: {self.pp} ms: {self.ms} cw: {self.cw}
 ol: {self.ol} hs: {self.hs} rl: {self.rl}
 frt: {self.frt} dn: {self.dn}"""
 
+        if self.cls == "bard":
+            string_builder += f"""
+pp: {self.pp} dn: {self.dn} cw: {self.cw}
+rl: {self.rl} cp: {self.cp}"""
         return string_builder

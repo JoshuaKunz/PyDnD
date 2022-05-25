@@ -10,6 +10,14 @@ class thief_base_score:
     cw = 60
     rl = 0
 
+class bard_base_score:
+
+    pp = 10
+    dn = 20
+    cw = 50
+    rl = 5
+    cp = 15
+
 def get_thief_base_score(character):
 
     character.pp = thief_base_score.pp
@@ -20,6 +28,14 @@ def get_thief_base_score(character):
     character.dn = thief_base_score.dn
     character.cw = thief_base_score.cw
     character.rl = thief_base_score.rl
+    return character
+
+def get_bard_base_score(character):
+    character.pp = bard_base_score.pp
+    character.dn = bard_base_score.dn
+    character.cw = bard_base_score.cw
+    character.rl = bard_base_score.rl
+    character.cp = bard_base_score.cp
     return character
 
 def get_thief_dex_adjust(character):
@@ -138,4 +154,47 @@ def get_all_thief_adjust(character):
     character = get_thief_base_score(character)
     character = get_thief_dex_adjust(character)
     character = get_thief_race_adjust(character)
+    return character
+
+def get_bard_dex_adjust(character):
+
+    if character.dexterity == 9:
+
+        character.pp -= 15
+
+    if character.dexterity == 10:
+
+        character.pp -= 10
+
+    if character.dexterity == 11:
+
+        character.pp -= 5
+
+    if character.dexterity == 17:
+
+        character.pp += 5
+
+    if character.dexterity == 18:
+
+        character.pp += 10
+
+    if character.dexterity == 19:
+         
+        character.pp += 15
+
+    return character
+
+def get_bard_race_adjust(character):
+    if character.race == 'halfelf':
+
+        character.pp += 10
+
+    return character
+
+def get_all_bard_adjust(character):
+
+    character = get_bard_base_score(character)
+    character = get_bard_dex_adjust(character)
+    character = get_bard_race_adjust(character)
+
     return character
