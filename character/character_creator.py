@@ -4,7 +4,7 @@ from character.database.class_option_services import *
 from character.database.racial_adjustment import get_racial_adjust
 from utilities.colored_text import *
 from character.database.thief_services import *
-
+from character.database.race_limitations import *
 def character_creator():
     print("Character Creator\n")
     character = Character()
@@ -13,6 +13,7 @@ def character_creator():
 
     # get the race options and store them in a variable
     racelist = get_race_options(character)
+
     print("Available Characters:")
     for race in racelist:
         print(race)
@@ -44,13 +45,18 @@ def character_creator():
     # add the attribute stats to the character
     character = set_all_attr_adjust(character)
 
+    print_green(str(character))
 
-    classlist = get_class_options(character)
+    options = get_class_options(character)
+    classlist = race_class_limits(character.race, options)
 
     if classlist == []:
         print("There are no class options - program ending.")
         # kill the program
         return
+
+# add print attributes here
+    
 
     print("Which Class would you like to be?")
     for char_class in classlist:
