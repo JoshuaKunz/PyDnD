@@ -147,6 +147,7 @@ HT: () WT: () Hair: () Eyes: ()
         td(cls="text-center", text=lbs(character.max_press))
         td(cls="text-center", text=character.open_doors)
         td(cls="text-center", text=wpc(character.bend_bars_lift_gates))
+
         tr(close=True)
         #end str row
 

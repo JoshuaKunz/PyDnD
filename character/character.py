@@ -15,9 +15,12 @@ class Character:
         self.str_mod = Dice(100).roll(1)
 
         self.hp = 0
+        self.thaco = 20
 
         self.race = None
         self.cls = None
+
+        self.money = 0
 
         self.pp = 0
         self.ol = 0
@@ -27,7 +30,6 @@ class Character:
         self.dn = 0
         self.cw = 0
         self.rl = 0
-
         self.cp = 0
 
         # cha
