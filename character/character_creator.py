@@ -7,6 +7,7 @@ from character.database.thief_services import *
 from character.character_sheet import CharacterSheet as cs
 from character.database.race_limitations import *
 from character.database.hit_point_service import *
+from character.database.thac0_service import *
 
 def character_creator():
     print("Character Creator\n")
@@ -85,7 +86,7 @@ def character_creator():
         char_class = classlist[user_input]
         
     character.cls = char_class
-    print("\nYou have chosen to be a(n) " + char_class + '\n')
+    print("\nYou have chosen to be a(n) " + race + ' ' + char_class + '\n')
         
 
     if character.cls == 'thief':
@@ -95,7 +96,7 @@ def character_creator():
         character = get_all_bard_adjust(character)
 
     sm = character.str_mod
-    if character.cls == 'fighter':
+    if character.cls == 'fighter' and character.strength == 18:
         if sm < 51:
             character.hit_probability = 1
             character.damage_adjust = 3
@@ -144,6 +145,8 @@ def character_creator():
     character = get_hp_score(character)
     character = get_hp_adjust(character)
     print_red('Hp: ' + str(character.hp))
+    character = get_thac0(character)
+    print_yellow('Thac0:' + str(character.thaco))
     cs.create_gui(character)
     
 
