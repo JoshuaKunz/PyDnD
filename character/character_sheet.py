@@ -92,14 +92,20 @@ HT: () WT: () Hair: () Eyes: ()
         #hp card
         div(cls="card")
         div(cls="card-body")
-        h4(cls="card-title", text="Hp: " + character.hp)
+        h4(cls="card-title", text="Hp: " + str(character.hp))
         div(close=True)
         div(close=True)
 
         #thac0 card
         div(cls="card")
         div(cls="card-body")
-        h4(cls="card-title", text="THAC0: " + 20 - character.hit_probability) #TODO: add thaco later
+
+        thaco = 20
+        if character.hit_probability < 0:
+            thaco += abs(character.hit_probability)
+        else:
+            thaco -= abs(character.hit_probability)
+        h4(cls="card-title", text="THAC0: " + str(thaco)) #TODO: add thaco later
         div(close=True)
         div(close=True)
         #end race class on one line
@@ -133,7 +139,7 @@ HT: () WT: () Hair: () Eyes: ()
 
         th(cls="text-danger", scope="row", header_font=True, text=character.strength)
         if character.strength == 18:
-            td(text=character.strength + "/" + character.str_mod + "%")
+            td(text=character.strength + "/" + str(character.str_mod) + "%")
         else:
             td(text="N/A")
 

@@ -144,7 +144,7 @@ def character_creator():
     character = get_hp_score(character)
     character = get_hp_adjust(character)
     print_red('Hp: ' + str(character.hp))
-    cs.make_file(character)
+    cs.create_gui(character)
     
 
 def __test_character_creator():
