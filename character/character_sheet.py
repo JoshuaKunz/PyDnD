@@ -101,13 +101,7 @@ HT: () WT: () Hair: () Eyes: ()
         #thac0 card
         div(cls="card")
         div(cls="card-body")
-
-        thaco = 20
-        if character.hit_probability < 0:
-            thaco += abs(character.hit_probability)
-        else:
-            thaco -= abs(character.hit_probability)
-        h4(cls="card-title", text="THAC0: " + str(thaco)) #TODO: add thaco later
+        h4(cls="card-title", text="THAC0: " + str(character.thaco)) #TODO: add thaco later
         div(close=True)
         div(close=True)
         #end race class on one line
