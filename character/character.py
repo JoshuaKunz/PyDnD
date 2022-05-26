@@ -20,6 +20,8 @@ class Character:
         self.race = None
         self.cls = None
 
+        self.money = 0
+
         self.pp = 0
         self.ol = 0
         self.frt = 0

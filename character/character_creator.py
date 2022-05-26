@@ -8,6 +8,7 @@ from character.character_sheet import CharacterSheet as cs
 from character.database.race_limitations import *
 from character.database.hit_point_service import *
 from character.database.thac0_service import *
+from character.database.gold_service import get_money
 
 def character_creator():
     print("Character Creator\n")
@@ -147,6 +148,8 @@ def character_creator():
     print_red('Hp: ' + str(character.hp))
     character = get_thac0(character)
     print_yellow('Thac0:' + str(character.thaco))
+    character = get_money(character)
+    print_blue('Coin:' + str(character.money))
     cs.create_gui(character)
     
 
