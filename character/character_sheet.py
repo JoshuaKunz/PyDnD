@@ -56,6 +56,8 @@ HT: () WT: () Hair: () Eyes: ()
         th = file.th
         td = file.td
         tbody = file.tbody
+        ul = file.ul
+        li = file.li
 
         file.start_html()
 
@@ -71,7 +73,7 @@ HT: () WT: () Hair: () Eyes: ()
         h1(close=True)
         div(close=True)
 
-        # race and class on one line
+        # race and class
         div(cls="d-flex p-1 text-center")
         
         #cards
@@ -99,12 +101,6 @@ HT: () WT: () Hair: () Eyes: ()
         #thac0 card
         div(cls="card")
         div(cls="card-body")
-
-        # thaco = 20
-        # if character.hit_probability < 0:
-        #     thaco += abs(character.hit_probability)
-        # else:
-        #     thaco -= abs(character.hit_probability)
         h4(cls="card-title", text="THAC0: " + str(character.thaco)) #TODO: add thaco later
         div(close=True)
         div(close=True)
@@ -114,19 +110,21 @@ HT: () WT: () Hair: () Eyes: ()
         div(close=True)
 
         # str table
-        div(cls="mg-3")
+        div(cls="container")
+        div(cls="row")
+        div(cls="mg-3 col-md-6")
         table(cls="table table-light")
 
         #table heads
         thead(cls="thead-light")
-        th(scope="col", text="STR: ")
-        th(scope="col", text="Double Ott")
-        th(scope="col", text="Hit Prob")
-        th(scope="col", text="Damage Adj")
-        th(scope="col", text="Weight Allow")
-        th(scope="col", text="Max Press")
-        th(scope="col", text="Open Doors")
-        th(scope="col", text="Bend Bars")
+        th(cls="col-md-1", scope="col", text="STR: ")
+        th(cls="text-center", scope="col", text="00%")
+        th(cls="text-center", scope="col", text="Hit Prob")
+        th(cls="text-center", scope="col", text="Damage Adj")
+        th(cls="text-center", scope="col", text="Weight Allow")
+        th(cls="text-center", scope="col", text="Max Press")
+        th(cls="text-center", scope="col", text="Open Doors")
+        th(cls="text-center", scope="col", text="Bend Bars")
         thead(close=True)
         #end table heads
 
@@ -137,18 +135,19 @@ HT: () WT: () Hair: () Eyes: ()
         #str row
         tr()
 
-        # th(cls="text-danger", scope="row", header_font=True, text=character.strength)
-        # if character.strength == 18:
-        #     td(text=character.strength + "/" + str(character.str_mod) + "%")
-        # else:
-        #     td(text="N/A")
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.strength)
+        if character.strength == 18:
+            td(cls="text-center bg-warning", text=str(character.strength) + "/" + str(character.str_mod) + "%")
+        else:
+            td(cls="text-center", text="N/A")
 
-        td(text=wp(character.hit_probability))
-        td(text=wp(character.damage_adjust))
-        td(text=lbs(character.weight_allowance))
-        td(text=lbs(character.max_press))
-        td(text=character.open_doors)
-        td(text=wpc(character.bend_bars_lift_gates))
+        td(cls="text-center", text=wp(character.hit_probability))
+        td(cls="text-center", text=wp(character.damage_adjust))
+        td(cls="text-center", text=lbs(character.weight_allowance))
+        td(cls="text-center", text=lbs(character.max_press))
+        td(cls="text-center", text=character.open_doors)
+        td(cls="text-center", text=wpc(character.bend_bars_lift_gates))
+
         tr(close=True)
         #end str row
 
@@ -160,20 +159,20 @@ HT: () WT: () Hair: () Eyes: ()
         table(cls="table table-light")
         #headers
         thead(cls="thead-light")
-        th(scope="col", text="DEX: ")
-        th(scope="col", text="Reaction Adj")
-        th(scope="col", text="Missile Adj")
-        th(scope="col", text="Defense Adj")
+        th(cls="col-md-1", scope="col", text="DEX: ")
+        th(cls="text-center", scope="col", text="Reaction Adj")
+        th(cls="text-center", scope="col", text="Missile Adj")
+        th(cls="text-center", scope="col", text="Defense Adj")
         #end headers
         thead(close=True)
 
         #body
         tbody()
         #rows
-        th(cls="text-danger", scope="row", header_font=True, text=character.dexterity)
-        td(text=wp(character.dex_reaction_adjustment))
-        td(text=wp(character.missile_attack_adjustment))
-        td(text=wp(character.defensive_adjustment))
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.dexterity)
+        td(cls="text-center", text=wp(character.dex_reaction_adjustment))
+        td(cls="text-center", text=wp(character.missile_attack_adjustment))
+        td(cls="text-center", text=wp(character.defensive_adjustment))
         tbody(close=True)
         #end dex table
         table(close=True)
@@ -182,24 +181,24 @@ HT: () WT: () Hair: () Eyes: ()
         table(cls="table table-light")
         #table headers
         thead(cls="thead-light")
-        th(scope="col", text="CON: ")
-        th(scope="col", text="Hit Point Adj")
-        th(scope="col", text="System Shock")
-        th(scope="col", text="Resurrection Survival")
-        th(scope="col", text="Poison Save")
-        th(scope="col", text="Regenerate")
+        th(cls="col-md-1", scope="col", text="CON: ")
+        th(cls="text-center", scope="col", text="Hit Point Adj")
+        th(cls="text-center", scope="col", text="System Shock")
+        th(cls="text-center", scope="col", text="Resurrection Survival")
+        th(cls="text-center", scope="col", text="Poison Save")
+        th(cls="text-center", scope="col", text="Regenerate")
         thead(close=True)
         #end table headers
         #con table body
         tbody()
         #rows
         tr()
-        th(cls="text-danger", scope="row", header_font=True, text=character.constitution)
-        td(text=wp(character.hp_adjustment))
-        td(text=wpc(character.system_shock))
-        td(text=wpc(character.ressurection_survival))
-        td(text=wp(character.poison_save))
-        td(text=wp(character.regeneration))
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.constitution)
+        td(cls="text-center", text=wp(character.hp_adjustment))
+        td(cls="text-center", text=wpc(character.system_shock))
+        td(cls="text-center", text=wpc(character.ressurection_survival))
+        td(cls="text-center", text=wp(character.poison_save))
+        td(cls="text-center", text=wp(character.regeneration))
         tr(close=True)
         tbody(close=True)
         #end con table body
@@ -210,12 +209,12 @@ HT: () WT: () Hair: () Eyes: ()
         table(cls="table table-light")
         #headers
         thead(cls="thead-light")
-        th(scope="col", text="INT: ")
-        th(scope="col", text="Max # of Lang")
-        th(scope="col", text="Max Spell Lvl")
-        th(scope="col", text="Chance to Learn")
-        th(scope="col", text="Max Spells/Lvl")
-        th(scope="col", text="Illusion Immunity")
+        th(cls="col-md-1", scope="col", text="INT: ")
+        th(cls="text-center", scope="col", text="Max # of Lang")
+        th(cls="text-center", scope="col", text="Max Spell Lvl")
+        th(cls="text-center", scope="col", text="Chance to Learn")
+        th(cls="text-center", scope="col", text="Max Spells/Lvl")
+        th(cls="text-center", scope="col", text="Illusion Immunity")
         #end table headers
         thead(close=True)
 
@@ -223,12 +222,12 @@ HT: () WT: () Hair: () Eyes: ()
         tbody()
         #add rows
         tr()
-        th(cls="text-danger", scope="row", header_font=True, text=character.intelligence)
-        td(text=character.number_of_languages)
-        td(text=character.max_spell_level)
-        td(text=wpc(character.chance_learn_spell))
-        td(text=character.max_number_of_spells)
-        td(text=character.illusion_immunity)
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.intelligence)
+        td(cls="text-center", text=character.number_of_languages)
+        td(cls="text-center", text=character.max_spell_level)
+        td(cls="text-center", text=wpc(character.chance_learn_spell))
+        td(cls="text-center", text=character.max_number_of_spells)
+        td(cls="text-center", text=character.illusion_immunity)
         tr(close=True)
         #end table body
 
@@ -239,22 +238,22 @@ HT: () WT: () Hair: () Eyes: ()
         table(cls="table table-light")
         #headers
         thead(cls="thead-light")
-        th(scope="col", text="WIS: ")
-        th(scope="col", text="Magical Def Adj")
-        th(scope="col", text="Spell Failure")
-        th(scope="col", text="Bonus Spells")
-        th(scope="col", text="Spell Immunity")
+        th(cls="col-md-1", scope="col", text="WIS: ")
+        th(cls="text-center", scope="col", text="Magical Def Adj")
+        th(cls="text-center", scope="col", text="Spell Failure")
+        th(cls="text-center", scope="col", text="Bonus Spells")
+        th(cls="text-center", scope="col", text="Spell Immunity")
         thead(close=True)
 
         #wis table body
         tbody()
         #add rows
         tr()
-        th(cls="text-danger", scope="row", header_font=True, text=character.wisdom)
-        td(text=character.magic_defence_adjustment)
-        td(text=wpc(character.chance_spell_failure))
-        td(text=character.bonus_spells)
-        td(text=character.spell_immunity)
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.wisdom)
+        td(cls="text-center", text=character.magic_defence_adjustment)
+        td(cls="text-center", text=wpc(character.chance_spell_failure))
+        td(cls="text-center", text=character.bonus_spells)
+        td(cls="text-center", text=character.spell_immunity)
         tr(close=True)
         #end wis table body
         tbody(close=True)
@@ -266,10 +265,10 @@ HT: () WT: () Hair: () Eyes: ()
         table(cls="table table-light")
         #headers
         thead(cls="thead-light")
-        th(scope="col", text="CHA: ")
-        th(scope="col", text="Max # Henchmen")
-        th(scope="col", text="Loyalty Base")
-        th(scope="col", text="Reaction Adj")
+        th(cls="col-md-1", scope="col", text="CHA: ")
+        th(cls="text-center", scope="col", text="Max # Henchmen")
+        th(cls="text-center", scope="col", text="Loyalty Base")
+        th(cls="text-center", scope="col", text="Reaction Adj")
         #endheaders
         thead(close=True)
         
@@ -277,10 +276,10 @@ HT: () WT: () Hair: () Eyes: ()
         tbody()
         #add rows
         tr()
-        th(cls="text-danger", scope="row", header_font=True, text=character.charisma)
-        td(text=character.maximum_henchmen)
-        td(text=wp(character.loyalty_base))
-        td(text=wp(character.cha_reaction_adjustment))
+        th(cls="text-danger bg-warning", scope="row", header_font=True, text=character.charisma)
+        td(cls="text-center", text=character.maximum_henchmen)
+        td(cls="text-center", text=wp(character.loyalty_base))
+        td(cls="text-center", text=wp(character.cha_reaction_adjustment))
         tr(close=True)
         #end body
         tbody(close=True)
@@ -290,6 +289,80 @@ HT: () WT: () Hair: () Eyes: ()
 
         div(close=True)
         #end div tables
+
+        #column
+        div(cls="col-md-6")
+
+        #container
+        div(cls="container h-100 d-flex flex-column")
+
+        #row1
+        div(cls="row h-25 flex-grow-1")
+        div(cls="card")
+        table(cls="table table-light")
+        thead()
+        th(scope="col", text="Weapon")
+        th(scope="col", text="#AT")
+        th(scope="col", text="Size")
+        th(scope="col", text="Type")
+        th(scope="col", text="Speed")
+        th(scope="col", text="Damage")
+        th(scope="col", text="Range/Special")
+        thead(close=True)
+        table(close=True)
+        div(close=True)
+        div(close=True)
+
+        #row2
+        div(cls="row h-75 flex-grow-1")
+        div(cls="card")
+        h4(cls="text-center card-title", text="Spells")
+        div(close=True)
+        div(close=True)
+
+        #end container
+        div(close=True)
+
+        div(close=True)
+        #end div row2
+
+        div(close=True)
+
+        #end container
+        div(close=True)
+
+
+        #div row
+        div(cls="row")
+
+        #theif skills div
+        div(cls="col-md-2")
+        div(cls="card")
+        ul(cls="list-group list-group-light list-group-small")
+        li(cls="list-group-item px-3", text="Pick Pockets: {}".format(wpc(character.pp)))
+        li(cls="list-group-item px-3", text="Open Locks: {}".format(wpc(character.ol)))
+        li(cls="list-group-item px-3", text="F/R Traps: {}".format(wpc(character.ol)))
+        li(cls="list-group-item px-3", text="Move Silently: {}".format(wpc(character.ms)))
+        li(cls="list-group-item px-3", text="Hide in Shadows: {}".format(wpc(character.hs)))
+        li(cls="list-group-item px-3", text="Detect Noise: {}".format(wpc(character.dn)))
+        li(cls="list-group-item px-3", text="Climb Walls: {}".format(wpc(character.cw)))
+        li(cls="list-group-item px-3", text="Read Languages: {}".format(wpc(character.rl)))
+        li(cls="list-group-item px-3", text="Backstab: X{}".format(2))
+        ul(close=True)
+        div(close=True)
+        #end div thief skills
+        div(close=True)
+
+        div(cls="col-md-5")
+        div(cls="card")
+        h4(cls="text-center card-title", text="Inventory")
+        div(close=True)
+        div(close=True)
+
+
+        #end row div
+        div(close=True)
+
 
         #end container
         div(close=True)

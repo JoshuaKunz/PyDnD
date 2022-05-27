@@ -86,6 +86,7 @@ class HTML:
             HTML.htmlStr += "<th class=\"{}\" scope=\"{}\">{}</th>".format(cls, scope, text)
         else:
             HTML.htmlStr += "<th class=\"{}\" scope=\"{}\"><h4>{}</th>".format(cls, scope, text)
+    
     def tbody(cls="", close=False):
         if close:
             HTML.htmlStr += "</tbody>"
@@ -94,3 +95,12 @@ class HTML:
 
     def td(cls="", text=""):
         HTML.htmlStr += "<td class=\"{}\">{}</td>".format(cls, text)
+
+    def ul(cls="", close=False):
+        if close:
+            HTML.htmlStr += "</ul>"
+        else:
+            HTML.htmlStr += "<ul class=\"{}\">".format(cls)
+
+    def li(cls="", text=""):
+        HTML.htmlStr += "<li class=\"{}\">{}</li>".format(cls, text)
