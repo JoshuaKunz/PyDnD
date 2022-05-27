@@ -66,3 +66,12 @@ class race_ability_score_requirements(BaseModel):
     min_int = IntegerField()
     min_wis = IntegerField()
     min_cha = IntegerField()
+
+class save_throw_values(BaseModel):
+    class_group = TextField(unique=True, null=False)
+    para_pois_dm = IntegerField()
+    rod_staff_wand = IntegerField()
+    petrify_poly = IntegerField()
+    breath_weapon = IntegerField()
+    spell = IntegerField()
+

@@ -1,4 +1,4 @@
-from character.character_creator import character_creator, __test_character_creator as test_with_all_3_attr
+from character.character_creator import character_creator
 
 character_creator()
 
