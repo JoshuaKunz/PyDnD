@@ -70,6 +70,14 @@ class Character:
         self.chance_spell_failure = 0
         self.spell_immunity = 0
 
+        # saveings throw
+        self.para_pois_dm = 0
+        self.rod_staff_wand = 0
+        self.petrify_poly = 0
+        self.breath_weapon = 0
+        self.spell = 0
+
+
     def __str__(self):
         string_builder = ''
         if self.cls == 'fighter' and self.strength == 18:

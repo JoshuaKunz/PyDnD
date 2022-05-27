@@ -9,6 +9,7 @@ from character.database.race_limitations import *
 from character.database.hit_point_service import *
 from character.database.thac0_service import *
 from character.database.gold_service import get_money
+from character.database.save_throw_service import get_save_throw
 
 def character_creator():
     print("Character Creator\n")
@@ -142,12 +143,17 @@ def character_creator():
     
     print_green(str(character))
 
-   
+    print()
     character = get_hp_score(character)
     character = get_hp_adjust(character)
     print_red('Hp: ' + str(character.hp))
+    print()
+    character = get_save_throw(character)
+    print('p/p/dm:{}, r/s/w:{}, p/p:{}, brth:{}, spell:{}'.format(character.para_pois_dm, character.rod_staff_wand, character.petrify_poly, character.breath_weapon, character.spell))
+    print()
     character = get_thac0(character)
     print_yellow('Thac0:' + str(character.thaco))
+    print()
     character = get_money(character)
     print_blue('Coin:' + str(character.money))
     cs.create_gui(character)

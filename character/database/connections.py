@@ -14,7 +14,8 @@ class DnDConnection:
                                 wisdom_ability_scores,
                                 charisma_ability_scores,
                                 subclass_ability_score_requirements,
-                                race_ability_score_requirements])
+                                race_ability_score_requirements,
+                                save_throw_values])
         self.db.close()
 
     def get_connection(self):
