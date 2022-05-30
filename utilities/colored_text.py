@@ -1,3 +1,4 @@
+import os
 
 class bcolors:
     HEADER = '\033[95m'
@@ -27,3 +28,14 @@ def __test_colors__():
     print_yellow("YELLOW TEXT")
     print_green("GREEN TEXT")
     print_blue("BLUE TEXT")
+
+
+class console:
+    def clear():
+        command = 'clear'
+        if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
+            command = 'cls'
+        os.system(command)
+
+    def run_command(command):
+        os.system(command)
