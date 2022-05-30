@@ -90,6 +90,11 @@ Int: {self.intelligence}
 Wis: {self.wisdom}
 Cha: {self.charisma}"""
 
+        return string_builder
+
+    def get_rogue_skills(self):
+
+        string_builder = ""
 
         if self.cls == "thief":
             string_builder += f"""
@@ -97,7 +102,7 @@ pp: {self.pp} ms: {self.ms} cw: {self.cw}
 ol: {self.ol} hs: {self.hs} rl: {self.rl}
 frt: {self.frt} dn: {self.dn}"""
 
-        if self.cls == "bard":
+        elif self.cls == "bard":
             string_builder += f"""
 pp: {self.pp} dn: {self.dn} cw: {self.cw}
 rl: {self.rl} cp: {self.cp}"""

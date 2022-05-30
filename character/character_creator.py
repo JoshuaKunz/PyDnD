@@ -143,7 +143,8 @@ def character_creator():
 
     
     print_green(str(character))
-
+    print()
+    print(character.get_rogue_skills())
     print()
     character = get_hp_score(character)
     character = get_hp_adjust(character)
