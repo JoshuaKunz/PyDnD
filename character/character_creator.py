@@ -10,6 +10,7 @@ from character.database.hit_point_service import *
 from character.database.thac0_service import *
 from character.database.gold_service import get_money
 from character.database.save_throw_service import get_save_throw
+from utilities.colored_text import console
 
 def character_creator():
     print("Character Creator\n")
@@ -158,6 +159,10 @@ def character_creator():
     print_blue('Coin:' + str(character.money))
     cs.create_gui(character)
     
+    answer = str(input("Would you like to open the website for PDF converter?")).lower()
+
+    if answer == "y" or answer == "yes":
+        console.run_command("start https://www.sejda.com/html-to-pdf")
 
 def __test_character_creator():
 
